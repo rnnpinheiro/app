@@ -58,3 +58,17 @@ Apresentar os dados
 # Estrutura de repetição
 
 - [x] while
+
+
+# Condicionais
+
+- [x] switch
+
+## Módulos em Node.js:
+
+- [x] importação de módulos (require, commonJS)
+- [x] biblioteca 'inquirer' para criar prompts interativos
+
+## Programação assíncrona e Promises:
+
+- [x] Uso de funções assíncronas [assync/await];
