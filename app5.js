@@ -1,5 +1,3 @@
-// condicionais, switch
-
 const { select, input, checkbox } = require('@inquirer/prompts');
 
 let meta = {
@@ -38,8 +36,6 @@ const listarMetas = async () => {
         return
     }
 
-    
-
     respostas.forEach ((resposta) => {
         const meta = metas.find((m) => {
             return m.value == resposta
@@ -56,18 +52,18 @@ const metasRealizadas = async () => {
         return meta.checked
     })
 
-    if(realizadas.length == 0) {
+    if (realizadas.length == 0) {
         console.log("Não existem metas realizadas! :(")
         return
     }
 
-    await select({
-        message: "Metas Realizadas " + realizadas.length,
+    await select ({
+        message: "Metas Realizadas: " + realizadas.length,
         choices: [...realizadas]
     })
 }
 
-// agua [ ] - caminhar [ ] - cantar [x]
+
 const metasAbertas = async () => {
     const abertas = metas.filter((meta) => {
         return meta.checked != true
@@ -79,11 +75,33 @@ const metasAbertas = async () => {
     }
 
     await select({
-        message: "Metas Abertas " + abertas.length,
+        message: "Metas Abertas: " + abertas.length,
         choices: [...abertas]
     })
 }
 
+const deletarMetas = async () => {
+    const metasDesmarcadas = metas.map((meta) => {
+        return { value: meta.value, checked: false }  
+    })
+
+    const itemsADeletar = await checkbox ({
+        message: "Selecione item para deletar.",
+        choices: [...metasDesmarcadas],
+        instructions: false,
+    })
+
+    if(itemsADeletar.length == 0) {
+        console.log("Nenhum item para deletar.")
+        return
+    }
+
+    itemsADeletar.forEach((item) => {
+        metas = metas.filter((meta) => {
+            return meta.value != item
+        })
+    })
+}
 
 const start = async () => {
 
@@ -110,6 +128,10 @@ const start = async () => {
                     value: "abertas"
                 },
                 {
+                    name: "Deletar metas",
+                    value: "deletar"
+                },
+                {
                     name: "Sair",
                     value: "sair"
                 }
@@ -130,6 +152,9 @@ const start = async () => {
                 break
             case "abertas":
                 await metasAbertas();
+                break
+            case "deletar":
+                await deletarMetas()
                 break
             case "sair":
                 console.log("Até mais..");
