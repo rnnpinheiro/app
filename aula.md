@@ -36,7 +36,7 @@ Apresentar os dados
 
 - [x] Operadores de atribuição de valor: = 
 - [x] Operador de concatenação: + 
-- [x] Operadores de comparação: 1==2    1 < 2   2 > 1   <= (maior/menor ou igual) =>
+- [x] Operadores de comparação: 1==2  !=  1 < 2   2 > 1   <= (maior/menor ou igual) =>
 - [x] Spread operator [...]
 
 ## Estrutura de dados
