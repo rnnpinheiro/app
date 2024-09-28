@@ -34,8 +34,8 @@ Apresentar os dados
 
 ## Operadores
 
-- [x] Operadores de atribuição de valor
-- [x] Operador de concatenação
+- [x] Operadores de atribuição de valor = 
+- [x] Operador de concatenação + 
 
 ## Estrutura de dados
 
