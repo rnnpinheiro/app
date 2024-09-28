@@ -12,4 +12,4 @@ console.log(meta.value);
 
 
 // Function // Arrow Function
-const criarMeta = () => {}
+// const criarMeta = () => {}
